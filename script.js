@@ -1,7 +1,15 @@
 // Lista province (demo — poi togliamo quelle dei PR)
 const province = ["Agrigento","Alessandria","Ancona","Bari","Bergamo","Bologna","Brescia","Cagliari","Catania","Como","Cosenza","Cuneo","Firenze","Foggia","Genova","Lecce","Milano","Modena","Napoli","Padova","Palermo","Parma","Perugia","Pisa","Roma","Salerno","Torino","Treviso","Udine","Varese","Venezia","Verona","Vicenza"];
-const sel = document.getElementById('provincia');
-province.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;sel.appendChild(o);});
+
+// Scuole — ABBOZZO. In produzione verranno prese dal gestionale (Supabase),
+// in base alla provincia selezionata.
+const scuoleDemo = ["Liceo Scientifico","Liceo Classico","Liceo Linguistico","Istituto Tecnico","Istituto Professionale","Altro / non in elenco"];
+
+const selProv = document.getElementById('provincia');
+province.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;selProv.appendChild(o);});
+
+const selScuola = document.getElementById('scuola');
+scuoleDemo.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;selScuola.appendChild(o);});
 
 function toStep2(){
   const nome=document.getElementById('nome').value.trim();
@@ -13,8 +21,8 @@ function toStep2(){
 }
 function toResult(){
   const prov=document.getElementById('provincia').value;
-  const scuola=document.getElementById('scuola').value.trim();
-  if(!prov||!scuola){alert('Seleziona provincia e scrivi la scuola');return;}
+  const scuola=document.getElementById('scuola').value;
+  if(!prov||!scuola){alert('Seleziona provincia e scuola');return;}
   // >>> QUI in produzione: il codice arriva dalla tabella buoni su Supabase <<<
   const nome=(window.__lead&&window.__lead.nome)||'VIBE';
   const code='BUONO'+nome.toUpperCase().replace(/[^A-Z]/g,'')+Math.floor(1+Math.random()*9);
