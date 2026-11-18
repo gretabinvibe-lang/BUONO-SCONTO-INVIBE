@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buono Sconto 100€ · Invibe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="logo">IN<b>VIBE</b></div>
+      <div class="steps">
+        <div class="dot on" id="d1"></div>
+        <div class="dot" id="d2"></div>
+        <div class="dot" id="d3"></div>
+      </div>
+
+      <!-- PAGINA 1 -->
+      <div class="page active" id="p1">
+        <h2>Il tuo buono da <span class="amount">100€</span></h2>
+        <p class="lead">Inserisci i tuoi dati per iniziare. Ci vogliono 10 secondi.</p>
+        <div class="field">
+          <label>Nome</label>
+          <input id="nome" type="text" placeholder="Il tuo nome" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label>Numero di telefono</label>
+          <input id="tel" type="tel" placeholder="es. 333 1234567" autocomplete="tel">
+        </div>
+        <button class="btn" onclick="toStep2()">Invia e continua</button>
+        <p class="micro">🔒 I tuoi dati vengono salvati subito in modo sicuro.</p>
+      </div>
+
+      <!-- PAGINA 2 -->
+      <div class="page" id="p2">
+        <h2>Ci siamo quasi! 🎯</h2>
+        <p class="lead">Ultimo passo per sbloccare il tuo buono.</p>
+        <div class="field">
+          <label>Provincia</label>
+          <select id="provincia">
+            <option value="">— Seleziona —</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Scuola</label>
+          <input id="scuola" type="text" placeholder="Scrivi il nome della tua scuola">
+        </div>
+        <button class="btn" onclick="toResult()">Ottieni il buono</button>
+      </div>
+
+      <!-- RISULTATO -->
+      <div class="page" id="p3">
+        <h2>🎉 Ecco il tuo buono!</h2>
+        <div class="coupon">
+          <div class="tag">Buono Sconto 100€</div>
+          <div class="code" id="codice">BUONO</div>
+          <div class="val">Valido per la tua prenotazione Invibe</div>
+        </div>
+        <div class="payoff">
+          <span class="places">CORFÙ · PAG · ZANTE · GALLIPOLI</span><br>
+          8000 PARTECIPANTI · ZERO SBATTI · SOLO VIBES
+        </div>
+        <div class="cta">📸 Fai lo screen e mandalo ai tuoi amici!</div>
+        <a class="btn orange" href="https://www.invibe.it" target="_blank" rel="noopener">Clicca qui per validare il tuo buono</a>
+        <p class="micro">Verrai portato sul sito Invibe per completare.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
