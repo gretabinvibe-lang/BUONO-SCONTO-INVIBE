@@ -20,7 +20,7 @@ function toStep2(){
   show('p2',2);
 }
 // URL della pagina di atterraggio su invibe.it (cambia qui se serve)
-const LANDING_URL='https://invibe.it/test-buono-sconto-dinamico-2027/';
+const LANDING_URL='https://invibe.it/test-buono-sconto-dinamico-2027-copy/';
 
 function toResult(){
   const prov=document.getElementById('provincia').value;
