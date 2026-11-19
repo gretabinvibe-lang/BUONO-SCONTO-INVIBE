@@ -19,14 +19,25 @@ function toStep2(){
   window.__lead={nome,tel};
   show('p2',2);
 }
+// URL della pagina di atterraggio su invibe.it (cambia qui se serve)
+const LANDING_URL='https://invibe.it/test-buono-sconto-dinamico-2027/';
+
 function toResult(){
   const prov=document.getElementById('provincia').value;
   const scuola=document.getElementById('scuola').value;
   if(!prov||!scuola){alert('Seleziona provincia e scuola');return;}
-  // >>> QUI in produzione: il codice arriva dalla tabella buoni su Supabase <<<
-  const nome=(window.__lead&&window.__lead.nome)||'VIBE';
-  const code='BUONO'+nome.toUpperCase().replace(/[^A-Z]/g,'')+Math.floor(1+Math.random()*9);
+
+  // >>> ID FINTO per test. In produzione l'ID progressivo arriva da Supabase <<<
+  const idFinto=Math.floor(100+Math.random()*900); // 100-999
+  const scuolaPulita=scuola.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  const code=idFinto+'-'+scuolaPulita;
+
+  // mostra il codice sul coupon
   document.getElementById('codice').textContent=code;
+
+  // collega il bottone finale all'atterraggio, passando il codice nell'URL
+  document.getElementById('btnValida').href=LANDING_URL+'?codice='+encodeURIComponent(code);
+
   show('p3',3);
   confetti();
 }
